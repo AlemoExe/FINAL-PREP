@@ -1,0 +1,23 @@
+
+'''
+Define an abstract class called Vehicle  with the abc module. The class should have a constructor that makes a model, and year. It should also have
+	•	An abstract method rent_cost(days)
+	•	A method details(the_status=False) that prints the basic vehicle info and includes if being used or not(base case is no)
+Use the ABC base class and @abstractmethod appropriately.
+'''
+
+
+from abc import ABC, abstractmethod
+
+class Vehicule(ABC):
+	def __init__(self, model, year):
+		self.model = model
+		self.year = year
+	@abstractmethod
+	def rental_cost(self, days):
+		pass
+	def details(self, status = False):
+		details = f"{self.model} {self.year}"
+		if status:
+			details += "Available"
+		print(details)
